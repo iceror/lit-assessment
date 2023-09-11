@@ -1,10 +1,14 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import JobBoard from './Components/JobBoard'
 import './App.css'
 
 function App() {
   return (
-    <>
-      <h3>LiT assessment</h3>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<JobBoard />}></Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
