@@ -1,5 +1,5 @@
 import logo from '../assets/img/lit-logo.png'
-import envelope from '../assets/img/envelope.png'
+import envelope from '../assets/img/message-received.png'
 import user from '../assets/img/user.png'
 
 const NavBar = () => {
