@@ -4,7 +4,16 @@ import csv from '../assets/data/job-data.csv'
 
 const JobList = () => {
   const data = getData()
-  console.log(data);
+  // console.log(data);
+
+  const getDaysSinceJobPost = (datePublished) => {
+    const oneDay = (24 * 60 * 60 * 1000);
+    const today = new Date();
+    const dayPublished = new Date(datePublished);
+    const daysPassed = Math.round(Math.abs((today - dayPublished) / oneDay));
+    return daysPassed
+  }
+
   return (
     <ul>
       {data.map((job) => {
@@ -13,8 +22,7 @@ const JobList = () => {
             <div className='main-job-info'>
               <h2>{job['Job Title']}</h2>
               <p>{job['Company Name']}</p>
-              {/* TODO function that counts days */}
-              <p>Posted x days ago</p>
+              <p>Posted {getDaysSinceJobPost(job['Date Published'])} days ago</p>
             </div>
             <div className="job-modality">
               <ul>
