@@ -1,12 +1,14 @@
 import JobList from "./JobList"
 import NavBar from "./NavBar"
 
-const JobBoard = () => {
+
+const JobBoard = ({data}) => {
+
   return (
     <>
       <NavBar />
       <h2>Job Board</h2>
-      <JobList />
+      <JobList data={data} />
     </>
   )
 }

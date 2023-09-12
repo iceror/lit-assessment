@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
-import { getData } from '../js/data-utils';
-import csv from '../assets/data/job-data.csv'
+// import { getData } from '../js/data-utils';
 
-const JobList = () => {
-  const data = getData()
+const JobList = ({data}) => {
+  // const data = getData()
   // console.log(data);
 
   const getDaysSinceJobPost = (datePublished) => {
