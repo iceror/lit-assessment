@@ -5,27 +5,138 @@
   font-family: "Raleway", sans-serif;
 }
 
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .navbar {
   background: white;
+  width: 67.5rem;
 }
 .navbar li {
   list-style: none;
+  margin: 0 1rem 0 0;
+}
+.navbar li a {
+  text-decoration: none;
+  color: #3A3A3A;
+  line-height: 1rem;
+}
+.navbar li button {
+  width: 5.5rem;
+  height: 1.4rem;
+  border: none;
+  border-radius: 3px;
+  background: #EA99A3;
+  color: white;
+  font-weight: 700;
+  font-size: 0.87rem;
 }
 .navbar .primary-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 5.5rem;
+}
+.navbar .primary-navbar .logo {
+  width: 3.75rem;
 }
 .navbar .primary-navbar img {
-  width: 3.75rem;
+  width: 1.5rem;
 }
 .navbar .primary-navbar ul {
   display: flex;
+  align-items: center;
   font-weight: 700;
+  font-size: 1.2rem;
+}
+.navbar .primary-navbar select {
+  border: none;
 }
 .navbar .secondary-navbar {
+  height: 1.25rem;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  margin-top: 0.3rem;
+}
+.navbar .secondary-navbar select {
+  border: none;
+}
+.navbar .secondary-navbar select option {
+  background: red;
+  font-size: 0.87rem;
+}
+
+main {
+  width: 100%;
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .filters {
+  width: 67.5rem;
+  height: 8rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+main .filters h3 {
+  margin: 0.8rem 0 0.8rem 0;
+}
+main .filters input {
+  margin-right: 2rem;
+  height: 1.7rem;
+  border: solid 0.12rem #D6D6D6;
+  padding: 0.5rem;
+}
+main hr {
+  width: 67.5rem;
+  color: #C1C1C1;
+}
+main .search {
+  width: 67.5rem;
+  height: 8rem;
+  display: flex;
+  justify-content: space-between;
+}
+main .search h3 {
+  margin: 0.8rem 0 0.8rem 0;
+}
+main .search input {
+  margin-right: 2rem;
+  height: 1.7rem;
+  border: solid 0.12rem #D6D6D6;
+  padding: 0.5rem;
+}
+main .search .order-by {
+  display: flex;
+  align-items: center;
+}
+main .search .order-by h3 {
+  font-weight: 400;
+}
+main .search .order-by button {
+  height: 2rem;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  background: white;
+  border: solid 0.1rem #C1C1C1;
+  color: #C1C1C1;
+}
+main .search .order-by button:hover {
+  background: #f2cace;
+  color: #EA99A3;
+  border: solid 0.1rem #EA99A3;
+  cursor: pointer;
+}
+
+ul {
+  width: 67.5rem;
 }
 
 /*# sourceMappingURL=build.css.map */
