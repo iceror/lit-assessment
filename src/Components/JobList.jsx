@@ -10,9 +10,6 @@ import location from '../assets/img/location.png'
 import clock from '../assets/img/clock.png'
 import seniority from '../assets/img/flower.png'
 
-
-
-
 const JobList = ({ data }) => {
   // const data = getData()
   // console.log(data);
