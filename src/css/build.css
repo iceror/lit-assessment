@@ -8,27 +8,22 @@
 .navbar {
   background: white;
 }
-
 .navbar li {
   list-style: none;
 }
-
-.primary-navbar {
+.navbar .primary-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-.primary-navbar img {
+.navbar .primary-navbar img {
   width: 3.75rem;
 }
-
-.primary-navbar ul {
+.navbar .primary-navbar ul {
   display: flex;
   font-weight: 700;
 }
-
-.secondary-navbar {
+.navbar .secondary-navbar {
   display: flex;
   justify-content: flex-end;
 }
