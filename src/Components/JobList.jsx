@@ -5,9 +5,15 @@ import unlimitedVacation from '../assets/img/unlimited-vacation.png'
 import parentalLeave from '../assets/img/paid-parental-leave.png'
 import latinxInTech from '../assets/img/latinx-in-tech.png'
 import womenInTech from '../assets/img/women-in-tech.png'
-import lgbtiq from '../assets/img/lgbtiq.png'
+import lgbtqi from '../assets/img/lgbtiq.png'
+import location from '../assets/img/location.png'
+import clock from '../assets/img/clock.png'
+import seniority from '../assets/img/flower.png'
 
-const JobList = ({data}) => {
+
+
+
+const JobList = ({ data }) => {
   // const data = getData()
   // console.log(data);
 
@@ -23,6 +29,28 @@ const JobList = ({data}) => {
     <ul className='job-list'>
       {data.map((job, index) => {
         const perksArray = job['Perks (coming soon)'].split(';').map(perk => perk.trim());
+
+        const renderPerkImages = (perksArray) => {
+          return perksArray.map((perk, perkIndex) => {
+            switch (perk) {
+              case 'remotefriendly':
+                return <img key={`perk-remote-${perkIndex}`} src={remoteFriendly} alt="Remote Friendly" />;
+              case 'unlimitedvacation':
+                return <img key={`perk-unlimited-${perkIndex}`} src={unlimitedVacation} alt="Unlimited Vacation" />;
+              case 'paidparentalleave':
+                return <img src={parentalLeave} alt="Paid Parental Leave" />
+              case 'latinxintech':
+                return <img src={latinxInTech} alt="Latinx in Tech" />
+              case 'womenintecherg':
+                return <img src={womenInTech} alt="Women in Tech" />
+              case 'lgbtqierg-2':
+                return <img src={lgbtqi} alt="LGBTQI+" />
+              default:
+                return null; // No image for unknown perks
+            }
+          });
+        };
+
         return (
           <li key={`job-${index}`}>
             <div className='main-job-info'>
@@ -31,27 +59,22 @@ const JobList = ({data}) => {
               <p>Posted {getDaysSinceJobPost(job['Date Published'])} days ago</p>
             </div>
             <div className="job-modality">
-              <ul>
-                <li>{job['Job Type']}</li>
-                <li>{job['Location Full'].split(';')}</li>
-                <li>{job['Seniority']}</li>
-              </ul>
+              <div>
+                <img src={clock} alt="" />
+                <p>{job['Job Type']}</p>
+              </div>
+              <div>
+                <img src={location} alt="" />
+                <p>{job['Location Full'].split(';').join(',')}</p>
+              </div>
+              <div>
+                <img src={seniority} alt="" />
+                <p>{job['Seniority']}</p>
+              </div>
             </div>
-            <div className="perks">
-                {perksArray.map((perk) => {
-                  return (
-                    <ul>
-                    <li>{perk === 'remotefriendly' ? <img src={remoteFriendly} alt="" /> : ''}</li>
-                    <li>{perk === 'unlimitedvacation' ? <img src={unlimitedVacation} alt="" /> : ''}</li>
-                    <li>{perk === 'paidparentalleave' ? <img src={parentalLeave} alt="" /> : ''}</li>
-                    <li>{perk === 'latinxintech' ? <img src={latinxInTech} alt="" /> : ''}</li>
-                    <li>{perk === 'womenintecherg' ? <img src={womenInTech} alt="" /> : ''}</li>
-                    <li>{perk === 'lgbtqierg-2' ? <img src={lgbtiq} alt="" /> : ''}</li>
-                    </ul>
-                  )
-                })}
-            </div>
-            <hr />
+            <ul className="perks">
+              {renderPerkImages(perksArray)}
+            </ul>
           </li>
         )
       })}
