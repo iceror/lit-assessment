@@ -15,9 +15,9 @@ const JobList = ({data}) => {
 
   return (
     <ul>
-      {data.map((job) => {
+      {data.map((job, index) => {
         return (
-          <li>
+          <li key={`job-${index}`}>
             <div className='main-job-info'>
               <h2>{job['Job Title']}</h2>
               <p>{job['Company Name']}</p>
