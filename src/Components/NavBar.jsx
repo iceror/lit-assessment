@@ -4,7 +4,6 @@ import user from '../assets/img/user.png'
 
 const NavBar = () => {
   return (
-
     <nav className='navbar'>
       <ul className='secondary-navbar'>
         <li>
@@ -12,18 +11,18 @@ const NavBar = () => {
             <option value="">Get involved</option>
           </select>
         </li>
-        <li><select name="Founders & Investors" id="">
-          <option value="">Founders & Investors</option>
-        </select>
+        <li>
+          <select name="Founders & Investors" id="">
+            <option value="">Founders & Investors</option>
+          </select>
         </li>
         <li><a href="">Chapters</a></li>
         <li><a href="">Blog</a></li>
         <li><a href="">Tiendita</a></li>
         <li><button>Donate</button></li>
       </ul>
-      <hr />
       <section className='primary-navbar'>
-        <img src={logo} alt="Latinas in tech logo" />
+        <img src={logo} alt="Latinas in tech logo" className='logo' />
         <ul>
           <li><a href="">Dashboard</a></li>
           <li>
@@ -38,7 +37,7 @@ const NavBar = () => {
             </select>
           </li>
           <li><a href="">LiT Community</a></li>
-          <li><a href=""><img src={envelope} alt="mail" className='envelope'/></a></li>
+          <li><a href=""><img src={envelope} alt="mail" className='envelope' /></a></li>
           <li><a href=""><img src={user} alt="ícono usuario" className='user-icon' /></a></li>
         </ul>
       </section>

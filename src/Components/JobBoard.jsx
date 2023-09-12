@@ -10,15 +10,19 @@ const JobBoard = ({ data }) => {
       <main>
         <div className="filters">
           <h3>Search by filters</h3>
-          <input type="text" placeholder="Functional Area" />
-          <input type="text" placeholder="Seniority" />
-          <input type="text" placeholder="Perks" />
-          <input type="text" placeholder="Location" />
+          <div>
+            <input type="text" placeholder="Functional Area" />
+            <input type="text" placeholder="Seniority" />
+            <input type="text" placeholder="Perks" />
+            <input type="text" placeholder="Location" />
+          </div>
         </div>
         <hr />
         <div className="search">
-          <h3>Search by keywords</h3>
-          <input type="text" placeholder="Keywords" />
+          <div className="search-input">
+            <h3>Search by keywords</h3>
+            <input type="text" placeholder="Keywords" />
+          </div>
           <div className="order-by">
             <h3>Order by:</h3>
             <button>Recent</button>
