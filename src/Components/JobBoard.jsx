@@ -4,9 +4,9 @@ import NavBar from "./NavBar"
 const JobBoard = () => {
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <h2>Job Board</h2>
-      <JobList/>
+      <JobList />
     </>
   )
 }
