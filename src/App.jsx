@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import JobBoard from './Components/JobBoard'
-import './App.css'
 
 function App() {
   return (
