@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import JobList from "./JobList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
   const { jobPath } = useParams();
@@ -12,9 +12,20 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
   // console.log(jobIndex);
   console.log(singleJob);
 
+  // const perksArray = singleJob['Perks (coming soon)'].split(';').map(perk => perk.trim());
+  // console.log(perksArray);
+
   const getSimilarJobs = () => {
-    
+    let similar = data.filter(job => {
+      return (job['Seniority slug'] === singleJob['Seniority slug'] && job['Functional Area Slug'] === singleJob['Functional Area Slug'])
+    })
+
+    setSimilarJobs(similar)
   }
+
+  useEffect(() => {
+    getSimilarJobs()
+  }, [])
 
   return (
     <>
@@ -28,7 +39,7 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
           {/* <p>{singleJob['Company tagline']}</p> */}
         </div>
         <div className="perks">
-
+          {/* {renderPerkImages()}   */}
         </div>
         <div className="single-job-modality">
           <p>{singleJob['Job Type']}</p>
@@ -46,7 +57,7 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
         </div>
       </section>
       <div className="warning">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem possimus officiis nisi dolore quod et dolor repellendus architecto nobis amet iste cum maiores suscipit, distinctio iure, in veritatis ipsam fuga!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem possimus officiis nisi dolore quod et dolor repellendus architecto nobis amet iste cum maiores suscipit, distinctio iure, in veritatis ipsam fuga!</p>
       </div>
       <section className="about-company">
         <h2>About the company</h2>
@@ -55,7 +66,7 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
       </section>
       <section className="similar-jobs">
         <h2>Similar Jobs</h2>
-        <JobList data={data} getDaysSinceJobPost={getDaysSinceJobPost}/>
+        <JobList data={similarJobs} getDaysSinceJobPost={getDaysSinceJobPost} />
       </section>
     </>
   )
