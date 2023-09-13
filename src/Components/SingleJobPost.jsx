@@ -2,6 +2,10 @@ import { useNavigate, useParams } from "react-router";
 import JobList from "./JobList";
 import { useEffect, useState } from "react";
 import PerksImages from "./PerksImages";
+import location from '../assets/img/location.png'
+import clock from '../assets/img/clock.png'
+import seniority from '../assets/img/flower.png'
+import calendar from '../assets/img/calendar.png'
 
 const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
   const { jobPath } = useParams();
@@ -36,23 +40,38 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
     <>
       <section className="job-details">
         <div className="job-title">
-          <button className="back-to-job-board" onClick={backToJobBoard}>Back to Job Board</button>
+          <button className="back-to-job-board" onClick={backToJobBoard}> {'< Back to Job Board'}</button>
           <h2 >{singleJob['Job Title']}</h2>
         </div>
         <div className="company">
+          <div className="company-name">
+
           <h2>{singleJob['Company Name']}</h2>
-          {/* <p>{singleJob['Company tagline']}</p> */}
+          <h3>Company tagline</h3>
+          </div>
+          <div className="perks">
+            <PerksImages perksArray={perksArray} />
+          </div>
+          <div className="single-job-modality">
+            <div>
+              <img src={clock} alt="" />
+              <p>{singleJob['Job Type']}</p>
+            </div>
+            <div>
+              <img src={location} alt="" />
+              <p>{singleJob['Location Full'].split(';').join(',')}</p>
+            </div>
+            <div>
+              <img src={seniority} alt="" />
+              <p>{singleJob['Seniority']}</p>
+            </div>
+            <div>
+              <img src={calendar} alt="" />
+              <p>Posted {getDaysSinceJobPost(singleJob['Date Published'])} days ago</p>
+            </div>
+          </div>
+          <button className="apply">Apply</button>
         </div>
-        <div className="perks">
-          <PerksImages perksArray={perksArray}/>
-        </div>
-        <div className="single-job-modality">
-          <p>{singleJob['Job Type']}</p>
-          <p>{singleJob['Location Full'].split(';')}</p>
-          <p>{singleJob['Seniority']}</p>
-          <p>Posted {getDaysSinceJobPost(singleJob['Date Published'])} days ago</p>
-        </div>
-        <button className="apply">Apply Now</button>
       </section>
       <section className="about-job">
         <div className="about">
