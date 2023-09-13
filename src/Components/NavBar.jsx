@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router'
 import logo from '../assets/img/lit-logo.png'
 import envelope from '../assets/img/message-received.png'
 import user from '../assets/img/user.png'
 
 const NavBar = () => {
+  const navigate = useNavigate()
   return (
     <nav className='navbar'>
       <ul className='secondary-navbar'>
@@ -22,7 +24,7 @@ const NavBar = () => {
         <li><button>Donate</button></li>
       </ul>
       <section className='primary-navbar'>
-        <img src={logo} alt="Latinas in tech logo" className='logo' />
+        <img src={logo} alt="Latinas in tech logo" className='logo' onClick={() => navigate('/')}/>
         <ul>
           <li><a href="">Dashboard</a></li>
           <li>
