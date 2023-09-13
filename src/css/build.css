@@ -168,6 +168,7 @@ main .search .order-by button:focus {
 .job-list li .perks {
   display: flex;
   justify-content: flex-end;
+  margin-right: 1rem;
 }
 .job-list li .perks img {
   margin: 0.3rem;
