@@ -11,17 +11,9 @@ import location from '../assets/img/location.png'
 import clock from '../assets/img/clock.png'
 import seniority from '../assets/img/flower.png'
 
-const JobList = ({ data }) => {
+const JobList = ({ data, getDaysSinceJobPost }) => {
   // const data = getData()
   // console.log(data);
-
-  const getDaysSinceJobPost = (datePublished) => {
-    const oneDay = (24 * 60 * 60 * 1000);
-    const today = new Date();
-    const dayPublished = new Date(datePublished);
-    const daysPassed = Math.round(Math.abs((today - dayPublished) / oneDay));
-    return daysPassed
-  }
 
   let navigate = useNavigate();
 

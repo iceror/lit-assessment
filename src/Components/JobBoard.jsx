@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react"
 import JobList from "./JobList"
-import NavBar from "./NavBar"
 
-
-const JobBoard = ({ data }) => {
+const JobBoard = ({ data, getDaysSinceJobPost }) => {
   const [jobs, setJobs] = useState([]);
   const [functionalArea, setFunctionalArea] = useState('');
   const [seniority, setSeniority] = useState('');
@@ -94,7 +92,7 @@ const JobBoard = ({ data }) => {
             <button onClick={sortCompanies}>Companies A-Z</button>
           </div>
         </div>
-        <JobList data={jobs} />
+        <JobList data={jobs} getDaysSinceJobPost={getDaysSinceJobPost} />
       </main>
     </>
   )
