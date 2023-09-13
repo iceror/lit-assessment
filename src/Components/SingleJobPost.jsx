@@ -6,6 +6,9 @@ import location from '../assets/img/location.png'
 import clock from '../assets/img/clock.png'
 import seniority from '../assets/img/flower.png'
 import calendar from '../assets/img/calendar.png'
+import contingent from '../assets/img/contingent-job.png'
+import readMore from '../assets/img/read-more.png'
+import companyImg from '../assets/img/company-img.png'
 
 const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
   const { jobPath } = useParams();
@@ -47,7 +50,6 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
         </div>
         <div className="company">
           <div className="company-name">
-
             <h2>{singleJob['Company Name']}</h2>
             <h3>Company tagline</h3>
           </div>
@@ -80,16 +82,20 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
         <section className="about-job">
           <div className="about">
             <h2>About the job</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, molestias!</p>
-            <button>Read more</button>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, velit dicta maiores commodi reprehenderit nihil pariatur consequatur quasi. Dolores, similique?</p>
+            <p>Itaque repellendus omnis alias velit soluta, aspernatur quia fugit, ipsam dolores consequatur ab, aliquam voluptatum? Odio animi vel mollitia. Voluptas!</p>
+            <p>Eius, sapiente unde excepturi consequatur impedit illum vitae dicta necessitatibus repellendus fugit harum id similique in velit rerum nihil soluta!</p>
+            <p>Id nulla iste, error delectus maxime voluptate quasi nostrum, dicta quae est necessitatibus dolorum. Dignissimos enim ullam aspernatur doloremque ratione.</p>
+            <button><img src={readMore} alt="" /></button>
           </div>
           <div className="warning">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem possimus officiis nisi dolore quod et dolor repellendus architecto nobis amet iste cum maiores suscipit, distinctio iure, in veritatis ipsam fuga!</p>
+            <img src={contingent} alt="" />
           </div>
         </section>
         <section className="about-company">
           <h2>About The Company</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas possimus ea dolorem eum sequi nulla quidem vel numquam, voluptatem delectus.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit eius nihil, dicta illo necessitatibus a doloribus neque labore natus est odit quasi voluptate maxime nam beatae provident? Est dolorum tempore ex debitis porro saepe hic nisi molestiae eum! Esse facilis quia obcaecati vero dignissimos sit vitae qui cum beatae velit.</p>
+          <img src={companyImg} alt="" />
           <button>See company profile</button>
         </section>
         <section className="similar-jobs">
