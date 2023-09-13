@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import JobBoard from './Components/JobBoard'
-import csv from './assets/data/job-data.csv'
+import csv from './assets/data/job-data-id.csv'
 import SingleJobPost from './Components/SingleJobPost';
 import NavBar from './Components/NavBar';
 import { getDaysSinceJobPost } from './js/data-utils';
