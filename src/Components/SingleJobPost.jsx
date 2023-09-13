@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import JobList from "./JobList";
 import { useEffect, useState } from "react";
 import PerksImages from "./PerksImages";
@@ -27,11 +27,16 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
     getSimilarJobs()
   }, [])
 
+  let navigate = useNavigate()
+  const backToJobBoard = () => {
+    navigate('/')
+  }
+
   return (
     <>
       <section className="job-details">
         <div className="job-title">
-          <button className="back-to-job-board">Back to Job Board</button>
+          <button className="back-to-job-board" onClick={backToJobBoard}>Back to Job Board</button>
           <h2 >{singleJob['Job Title']}</h2>
         </div>
         <div className="company">
