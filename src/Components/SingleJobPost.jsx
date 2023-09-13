@@ -11,11 +11,13 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
   const { jobPath } = useParams();
   const [similarJobs, setSimilarJobs] = useState([])
 
+  // console.log(jobPath);
   const pathNums = jobPath.match(/\d+/g);
-  const jobIndex = Number(pathNums) - 1
-  const singleJob = data[jobIndex]
+  const jobIndex = Number(pathNums)
+  const singleJob = data[jobIndex - 1];
+
   // console.log(jobIndex);
-  console.log(singleJob);
+  // console.log(singleJob);
 
   const perksArray = singleJob['Perks (coming soon)'].split(';').map(perk => perk.trim());
 
@@ -29,7 +31,7 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
 
   useEffect(() => {
     getSimilarJobs()
-  }, [])
+  }, [jobPath])
 
   let navigate = useNavigate()
   const backToJobBoard = () => {
@@ -46,8 +48,8 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
         <div className="company">
           <div className="company-name">
 
-          <h2>{singleJob['Company Name']}</h2>
-          <h3>Company tagline</h3>
+            <h2>{singleJob['Company Name']}</h2>
+            <h3>Company tagline</h3>
           </div>
           <div className="perks">
             <PerksImages perksArray={perksArray} />
@@ -73,25 +75,28 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
           <button className="apply">Apply</button>
         </div>
       </section>
-      <section className="about-job">
-        <div className="about">
-          <h2>About the job</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, molestias!</p>
-          <button>Read more</button>
-        </div>
-      </section>
-      <div className="warning">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem possimus officiis nisi dolore quod et dolor repellendus architecto nobis amet iste cum maiores suscipit, distinctio iure, in veritatis ipsam fuga!</p>
-      </div>
-      <section className="about-company">
-        <h2>About the company</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas possimus ea dolorem eum sequi nulla quidem vel numquam, voluptatem delectus.</p>
-        <button>See company profile</button>
-      </section>
-      <section className="similar-jobs">
-        <h2>Similar Jobs</h2>
-        <JobList data={similarJobs} getDaysSinceJobPost={getDaysSinceJobPost} />
-      </section>
+      <main>
+
+        <section className="about-job">
+          <div className="about">
+            <h2>About the job</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, molestias!</p>
+            <button>Read more</button>
+          </div>
+          <div className="warning">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem possimus officiis nisi dolore quod et dolor repellendus architecto nobis amet iste cum maiores suscipit, distinctio iure, in veritatis ipsam fuga!</p>
+          </div>
+        </section>
+        <section className="about-company">
+          <h2>About The Company</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas possimus ea dolorem eum sequi nulla quidem vel numquam, voluptatem delectus.</p>
+          <button>See company profile</button>
+        </section>
+        <section className="similar-jobs">
+          <h2>Similar Jobs</h2>
+          <JobList data={similarJobs} getDaysSinceJobPost={getDaysSinceJobPost} />
+        </section>
+      </main>
     </>
   )
 }
