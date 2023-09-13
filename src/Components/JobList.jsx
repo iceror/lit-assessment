@@ -25,10 +25,10 @@ const JobList = ({ data }) => {
 
   let navigate = useNavigate();
 
-  const routeChange = (job) => {
+  const routeChange = (job, index) => {
     console.log(job);
-    // let path = `newPath`;
-    // navigate(path)
+    let path = `jobs/job-${index + 1}-${job['Job Title'].replace(/\s+/g, '-')}-${job['Company Name'].replace(/\s+/g, '-')}`;
+    navigate(path)
   }
 
   return (
@@ -60,7 +60,7 @@ const JobList = ({ data }) => {
           };
 
           return (
-            <li key={`job-${index}`} onClick={() => routeChange(job)}>
+            <li key={`job-${index + 1}`} onClick={() => routeChange(job, index)}>
               <div className='main-job-info'>
                 <h2>{job['Job Title']}</h2>
                 <p>{job['Company Name']}</p>
