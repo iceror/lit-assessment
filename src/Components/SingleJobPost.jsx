@@ -17,7 +17,7 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
 
   const getSimilarJobs = () => {
     let similar = data.filter(job => {
-      return (job['Seniority slug'] === singleJob['Seniority slug'] && job['Functional Area Slug'] === singleJob['Functional Area Slug'])
+      return (job['Seniority slug'] === singleJob['Seniority slug'] && job['Functional Area Slug'] === singleJob['Functional Area Slug'] && job['Job Title'] != singleJob['Job Title'])
     })
 
     setSimilarJobs(similar)
