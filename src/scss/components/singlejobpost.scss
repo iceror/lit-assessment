@@ -1,0 +1,93 @@
+.job-title {
+  width: 67.5rem;
+  height: 10.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  .back-to-job-board {
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: $header-grey;
+
+  }
+
+  h2 {
+    font-size: 1.875rem;
+    line-height: 1.5;
+    color: $header-grey;
+  }
+}
+
+.company {
+  width: 67.5rem;
+  height: 14.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 
+  'company-name perks'
+  'job-modality 0'
+  'button 0';
+
+  .company-name {
+    grid-area: company-name;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    h2 {
+      color: $pink;
+    }
+
+    h3 {
+      color: $header-grey;
+    }
+  }
+
+  .perks {
+    grid-area: perks;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    img {
+      margin: .3rem;
+      width: 47.7px;
+      height: 50px;
+    }
+  }
+
+  .single-job-modality {
+    grid-area: job-modality;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.2fr;
+    font-size: .8rem;
+
+    div {
+      display: flex;
+      align-items: center;
+      color: $header-grey;
+
+      img{
+        height: 1.5rem;
+        margin-right: .2rem;
+      }
+    }
+  }
+
+  button {
+    grid-area: button;
+    width: 113px;
+    height: 39px;
+    border: none;
+    border-radius: 3px;
+    background: $pink;
+    color: $white;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+}

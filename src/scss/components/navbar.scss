@@ -47,6 +47,8 @@
 
     select {
       border: none;
+      font-size: 1rem;
+      font-weight: 700;
     }
   }
 
@@ -60,10 +62,7 @@
 
     select {
       border: none;
-
-      option {
-        font-size: .87rem;
-      }
+      font-size: 1rem;
     }
 
   }

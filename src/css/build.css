@@ -54,6 +54,8 @@
 }
 .navbar .primary-navbar select {
   border: none;
+  font-size: 1rem;
+  font-weight: 700;
 }
 .navbar .secondary-navbar {
   height: 1.25rem;
@@ -64,9 +66,7 @@
 }
 .navbar .secondary-navbar select {
   border: none;
-}
-.navbar .secondary-navbar select option {
-  font-size: 0.87rem;
+  font-size: 1rem;
 }
 
 main {
@@ -161,6 +161,7 @@ main .search .order-by button:focus {
 }
 .job-list li .job-modality div {
   display: flex;
+  align-items: center;
 }
 .job-list li .job-modality div img {
   height: 1.5rem;
@@ -172,6 +173,84 @@ main .search .order-by button:focus {
 }
 .job-list li .perks img {
   margin: 0.3rem;
+}
+
+.job-title {
+  width: 67.5rem;
+  height: 10.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.job-title .back-to-job-board {
+  border: none;
+  background: none;
+  font-size: 1rem;
+  color: #555555;
+}
+.job-title h2 {
+  font-size: 1.875rem;
+  line-height: 1.5;
+  color: #555555;
+}
+
+.company {
+  width: 67.5rem;
+  height: 14.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "company-name perks" "job-modality 0" "button 0";
+}
+.company .company-name {
+  grid-area: company-name;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.company .company-name h2 {
+  color: #EA99A3;
+}
+.company .company-name h3 {
+  color: #555555;
+}
+.company .perks {
+  grid-area: perks;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.company .perks img {
+  margin: 0.3rem;
+  width: 47.7px;
+  height: 50px;
+}
+.company .single-job-modality {
+  grid-area: job-modality;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.2fr;
+  font-size: 0.8rem;
+}
+.company .single-job-modality div {
+  display: flex;
+  align-items: center;
+  color: #555555;
+}
+.company .single-job-modality div img {
+  height: 1.5rem;
+  margin-right: 0.2rem;
+}
+.company button {
+  grid-area: button;
+  width: 113px;
+  height: 39px;
+  border: none;
+  border-radius: 3px;
+  background: #EA99A3;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 /*# sourceMappingURL=build.css.map */
