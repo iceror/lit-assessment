@@ -6,8 +6,9 @@
     height: 7.5rem;
     background: white;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1.5fr 2fr;
     column-gap: 1rem;
+    row-gap: .5rem;
     align-items: center;
 
 
@@ -31,8 +32,6 @@
         img {
           height: 1.5rem;
         }
-
-        ;
       }
     }
 
@@ -45,7 +44,5 @@
         margin: .3rem;
       }
     }
-
-
   }
 }

@@ -147,8 +147,9 @@ main .search .order-by button:focus {
   height: 7.5rem;
   background: white;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1.5fr 2fr;
   column-gap: 1rem;
+  row-gap: 0.5rem;
   align-items: center;
 }
 .job-list li .main-job-info {
@@ -264,15 +265,28 @@ main h2 {
   line-height: 3;
   margin-left: 1rem;
 }
+main p {
+  color: #555555;
+}
 main .about-job {
   width: 67.5rem;
   height: 20rem;
   margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
 }
 main .about-job .about {
-  width: 53.125rem;
+  width: 50rem;
   height: 100%;
   background: white;
+}
+main .about-job .about p {
+  margin: 0 0 1rem 1rem;
+}
+main .about-job .about button {
+  margin-left: 1rem;
+  border: none;
+  background: none;
 }
 main .about-job .warning {
   width: 15rem;
@@ -282,6 +296,30 @@ main .about-company {
   height: 20rem;
   margin-top: 2rem;
   background: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-areas: "company img" "p img" "btn img";
+  column-gap: 3rem;
+}
+main .about-company h2 {
+  grid-area: company;
+}
+main .about-company p {
+  grid-area: p;
+  margin: 0 0 1rem 1rem;
+}
+main .about-company img {
+  grid-area: img;
+}
+main .about-company button {
+  width: 219px;
+  height: 39px;
+  color: #EA99A3;
+  border: solid 3px #EA99A3;
+  border-radius: 3px;
+  background: none;
+  margin-left: 1rem;
 }
 main .similar-jobs {
   margin-top: 2rem;

@@ -102,15 +102,31 @@ main {
     margin-left: 1rem;
   }
 
+  p {
+    color: $header-grey;
+  }
+
   .about-job {
     width: 67.5rem;
     height: 20rem;
     margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
 
     .about {
-      width: 53.125rem;
+      width: 50rem;
       height: 100%;
       background: $white;
+
+      p {
+        margin: 0 0 1rem 1rem;
+      }
+
+      button {
+        margin-left: 1rem;
+        border: none;
+        background: none;
+      }
     }
 
     .warning {
@@ -118,12 +134,42 @@ main {
     }
   }
 
-
   .about-company {
     width: 67.5rem;
     height: 20rem;
     margin-top: 2rem;
     background: $white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas:
+      'company img'
+      'p img'
+      'btn img';
+      column-gap: 3rem;
+
+    h2 {
+      grid-area: company;
+    }
+
+    p {
+      grid-area: p;
+      margin: 0 0 1rem 1rem;
+    }
+
+    img {
+      grid-area: img;
+    }
+
+    button {
+      width: 219px;
+      height: 39px;
+      color: $pink;
+      border: solid 3px $pink;
+      border-radius: 3px;
+      background: none;
+      margin-left: 1rem;
+    }
   }
 
   .similar-jobs {
