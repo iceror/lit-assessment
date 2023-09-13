@@ -39,7 +39,7 @@ const JobBoard = ({ data }) => {
         (perks === '' || job['Perks (coming soon)'].toLowerCase().includes(perks.toLowerCase())) &&
         (location === '' || job['Location Full'].toLowerCase().includes(location.toLowerCase())))
     })
-    console.log(filteredJobs);
+    // console.log(filteredJobs);
     setJobs(filteredJobs)
   };
 
@@ -49,7 +49,7 @@ const JobBoard = ({ data }) => {
       return jobValues.some((value) => value.toLowerCase().includes(keyword.toLowerCase()))
     })
     const filteredJobs = data.filter((_, index) => keywordExistsInJob[index]);
-    console.log(filteredJobs);
+    // console.log(filteredJobs);
     setJobs(filteredJobs)
   }
 
@@ -72,7 +72,6 @@ const JobBoard = ({ data }) => {
 
   return (
     <>
-      <NavBar />
       <main>
         <div className="filters">
           <h3>Search by filters</h3>
