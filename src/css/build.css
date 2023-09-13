@@ -158,6 +158,8 @@ main .search .order-by button:focus {
   width: 20rem;
   color: #EA99A3;
   font-size: 1rem;
+  text-decoration: none;
+  margin: 0;
 }
 .job-list li .job-modality div {
   display: flex;
@@ -251,6 +253,42 @@ main .search .order-by button:focus {
   color: white;
   font-weight: 700;
   font-size: 1rem;
+}
+
+main {
+  background: #f0f0f0;
+}
+main h2 {
+  font-size: 1.625rem;
+  color: #555555;
+  line-height: 3;
+  margin-left: 1rem;
+}
+main .about-job {
+  width: 67.5rem;
+  height: 20rem;
+  margin-top: 3rem;
+}
+main .about-job .about {
+  width: 53.125rem;
+  height: 100%;
+  background: white;
+}
+main .about-job .warning {
+  width: 15rem;
+}
+main .about-company {
+  width: 67.5rem;
+  height: 20rem;
+  margin-top: 2rem;
+  background: white;
+}
+main .similar-jobs {
+  margin-top: 2rem;
+}
+main .similar-jobs h2 {
+  background: white;
+  margin: 0;
 }
 
 /*# sourceMappingURL=build.css.map */

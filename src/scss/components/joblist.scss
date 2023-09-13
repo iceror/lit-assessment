@@ -18,6 +18,8 @@
         width: 20rem;
         color: $pink;
         font-size: 1rem;
+        text-decoration: none;
+        margin: 0;
       }
     }
 
@@ -26,9 +28,11 @@
         display: flex;
         align-items: center;
 
-      img {
-        height: 1.5rem;
-      };
+        img {
+          height: 1.5rem;
+        }
+
+        ;
       }
     }
 

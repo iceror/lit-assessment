@@ -27,10 +27,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: 
-  'company-name perks'
-  'job-modality 0'
-  'button 0';
+  grid-template-areas:
+    'company-name perks'
+    'job-modality 0'
+    'button 0';
 
   .company-name {
     grid-area: company-name;
@@ -72,7 +72,7 @@
       align-items: center;
       color: $header-grey;
 
-      img{
+      img {
         height: 1.5rem;
         margin-right: .2rem;
       }
@@ -89,5 +89,49 @@
     color: $white;
     font-weight: 700;
     font-size: 1rem;
+  }
+}
+
+main {
+  background: $light-grey;
+
+  h2 {
+    font-size: 1.625rem;
+    color: $header-grey;
+    line-height: 3;
+    margin-left: 1rem;
+  }
+
+  .about-job {
+    width: 67.5rem;
+    height: 20rem;
+    margin-top: 3rem;
+
+    .about {
+      width: 53.125rem;
+      height: 100%;
+      background: $white;
+    }
+
+    .warning {
+      width: 15rem;
+    }
+  }
+
+
+  .about-company {
+    width: 67.5rem;
+    height: 20rem;
+    margin-top: 2rem;
+    background: $white;
+  }
+
+  .similar-jobs {
+    margin-top: 2rem;
+
+    h2 {
+      background: $white;
+      margin: 0;
+    }
   }
 }
