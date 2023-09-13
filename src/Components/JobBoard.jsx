@@ -83,7 +83,24 @@ const JobBoard = ({ data, getDaysSinceJobPost }) => {
   }
 
   const sortCompanies = () => {
-    console.log('sort companies -..-.-.-.-.');
+    const companiesArray = []
+    data.forEach((job, index) => {
+      const companyName = job['Company Name']
+      companiesArray.push({ companyName, index})
+    })
+
+    let filteredJobs = []
+    const addedIndices = new Set()
+
+    companiesArray.forEach(({companyName, index}) => {
+      if (!addedIndices.has(index)) {
+        filteredJobs.push(data[index]);
+        addedIndices.add(index);
+      }
+      return filteredJobs.sort().reverse()
+    })
+
+    setJobs(filteredJobs)
   }
 
   return (
