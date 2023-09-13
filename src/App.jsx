@@ -3,25 +3,16 @@ import JobBoard from './Components/JobBoard'
 import csv from './assets/data/job-data.csv'
 import SingleJobPost from './Components/SingleJobPost';
 import NavBar from './Components/NavBar';
+import { getDaysSinceJobPost } from './js/data-utils';
 
 
 function App() {
-  const data = csv;
-
-  const getDaysSinceJobPost = (datePublished) => {
-    const oneDay = (24 * 60 * 60 * 1000);
-    const today = new Date();
-    const dayPublished = new Date(datePublished);
-    const daysPassed = Math.round(Math.abs((today - dayPublished) / oneDay));
-    return daysPassed
-  }
-
   return (
     <BrowserRouter>
-    <NavBar/>
+      <NavBar />
       <Routes>
-        <Route path='/' element={<JobBoard data={data} getDaysSinceJobPost={getDaysSinceJobPost} />}></Route>
-        <Route path='jobs/:jobPath' element={<SingleJobPost data={data} getDaysSinceJobPost={getDaysSinceJobPost} />}></Route>
+        <Route path='/' element={<JobBoard data={csv} getDaysSinceJobPost={getDaysSinceJobPost} />}></Route>
+        <Route path='jobs/:jobPath' element={<SingleJobPost data={csv} getDaysSinceJobPost={getDaysSinceJobPost} />}></Route>
       </Routes>
     </BrowserRouter>
   )
