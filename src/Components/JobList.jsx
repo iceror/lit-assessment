@@ -1,24 +1,14 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
-// import { getData } from '../js/data-utils';
-import remoteFriendly from '../assets/img/remote-friendly.png'
-import unlimitedVacation from '../assets/img/unlimited-vacation.png'
-import parentalLeave from '../assets/img/paid-parental-leave.png'
-import latinxInTech from '../assets/img/latinx-in-tech.png'
-import womenInTech from '../assets/img/women-in-tech.png'
-import lgbtqi from '../assets/img/lgbtiq.png'
 import location from '../assets/img/location.png'
 import clock from '../assets/img/clock.png'
 import seniority from '../assets/img/flower.png'
 import PerksImages from './PerksImages';
 
 const JobList = ({ data, getDaysSinceJobPost }) => {
-  // const data = getData()
-  // console.log(data);
-
   let navigate = useNavigate();
 
   const routeChange = (job, index) => {
+    // TO DO fix paths adding
     console.log(job);
     let path = `jobs/job-${index + 1}-${job['Job Title'].replace(/[\s/]/g, '-')}-${job['Company Name'].replace(/[\s/]/g, '-')}`;
     navigate(path)
