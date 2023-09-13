@@ -61,7 +61,25 @@ const JobBoard = ({ data, getDaysSinceJobPost }) => {
   // console.log(jobs);
 
   const showRecent = () => {
-    console.log('recent jobs......');
+    const dateArray = [];
+    data.forEach((job, index) => {
+      const date = new Date(job['Date Published']).toLocaleDateString();
+      dateArray.push({ date, index });
+    });
+    dateArray.sort((a, b) => b.date.localeCompare(a.date));
+
+    // addedIndeces set to avoid repeated jobs
+    const filteredJobs = [];
+    const addedIndices = new Set();
+
+    dateArray.forEach(({ date, index }) => {
+      if (!addedIndices.has(index)) {
+        filteredJobs.push(data[index]);
+        addedIndices.add(index);
+      }
+    });
+
+    setJobs(filteredJobs);
   }
 
   const sortCompanies = () => {
