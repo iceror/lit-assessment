@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 // import { getData } from '../js/data-utils';
 import remoteFriendly from '../assets/img/remote-friendly.png'
 import unlimitedVacation from '../assets/img/unlimited-vacation.png'
@@ -22,60 +23,71 @@ const JobList = ({ data }) => {
     return daysPassed
   }
 
+  let navigate = useNavigate();
+
+  const routeChange = (job) => {
+    console.log(job);
+    // let path = `newPath`;
+    // navigate(path)
+  }
+
   return (
-    <ul className='job-list'>
-      {data.map((job, index) => {
-        const perksArray = job['Perks (coming soon)'].split(';').map(perk => perk.trim());
+    data.length === 0 ? <h3>We don't have jobs that match that description yet 😬</h3> :
+      (<ul className='job-list'>
+        {/* TO DO render only 25 elements and make various pages .slice(0,26) */}
+        {data.map((job, index) => {
+          const perksArray = job['Perks (coming soon)'].split(';').map(perk => perk.trim());
 
-        const renderPerkImages = (perksArray) => {
-          return perksArray.map((perk, perkIndex) => {
-            switch (perk) {
-              case 'remotefriendly':
-                return <img key={`perk-remote-${perkIndex}`} src={remoteFriendly} alt="Remote Friendly" />;
-              case 'unlimitedvacation':
-                return <img key={`perk-unlimited-${perkIndex}`} src={unlimitedVacation} alt="Unlimited Vacation" />;
-              case 'paidparentalleave':
-                return <img src={parentalLeave} alt="Paid Parental Leave" />
-              case 'latinxintech':
-                return <img src={latinxInTech} alt="Latinx in Tech" />
-              case 'womenintecherg':
-                return <img src={womenInTech} alt="Women in Tech" />
-              case 'lgbtqierg-2':
-                return <img src={lgbtqi} alt="LGBTQI+" />
-              default:
-                return null; // No image for unknown perks
-            }
-          });
-        };
+          const renderPerkImages = (perksArray) => {
+            return perksArray.map((perk, perkIndex) => {
+              switch (perk) {
+                case 'remotefriendly':
+                  return <img key={`perk-remote-${perkIndex}`} src={remoteFriendly} alt="Remote Friendly" />;
+                case 'unlimitedvacation':
+                  return <img key={`perk-unlimited-${perkIndex}`} src={unlimitedVacation} alt="Unlimited Vacation" />;
+                case 'paidparentalleave':
+                  return <img src={parentalLeave} alt="Paid Parental Leave" />
+                case 'latinxintech':
+                  return <img src={latinxInTech} alt="Latinx in Tech" />
+                case 'womenintecherg':
+                  return <img src={womenInTech} alt="Women in Tech" />
+                case 'lgbtqierg-2':
+                  return <img src={lgbtqi} alt="LGBTQI+" />
+                default:
+                  return null; // No image for unknown perks
+              }
+            });
+          };
 
-        return (
-          <li key={`job-${index}`}>
-            <div className='main-job-info'>
-              <h2>{job['Job Title']}</h2>
-              <p>{job['Company Name']}</p>
-              <p>Posted {getDaysSinceJobPost(job['Date Published'])} days ago</p>
-            </div>
-            <div className="job-modality">
-              <div>
-                <img src={clock} alt="" />
-                <p>{job['Job Type']}</p>
+          return (
+            <li key={`job-${index}`} onClick={() => routeChange(job)}>
+              <div className='main-job-info'>
+                <h2>{job['Job Title']}</h2>
+                <p>{job['Company Name']}</p>
+                <p>Posted {getDaysSinceJobPost(job['Date Published'])} days ago</p>
               </div>
-              <div>
-                <img src={location} alt="" />
-                <p>{job['Location Full'].split(';').join(',')}</p>
+              <div className="job-modality">
+                <div>
+                  <img src={clock} alt="" />
+                  <p>{job['Job Type']}</p>
+                </div>
+                <div>
+                  <img src={location} alt="" />
+                  <p>{job['Location Full'].split(';').join(',')}</p>
+                </div>
+                <div>
+                  <img src={seniority} alt="" />
+                  <p>{job['Seniority']}</p>
+                </div>
               </div>
-              <div>
-                <img src={seniority} alt="" />
-                <p>{job['Seniority']}</p>
-              </div>
-            </div>
-            <ul className="perks">
-              {renderPerkImages(perksArray)}
-            </ul>
-          </li>
-        )
-      })}
-    </ul>
+              <ul className="perks">
+                {renderPerkImages(perksArray)}
+              </ul>
+            </li>
+          )
+        })}
+      </ul>
+      )
   )
 }
 
