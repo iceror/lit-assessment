@@ -8,6 +8,9 @@ const JobBoard = ({ data, getDaysSinceJobPost }) => {
   const [perks, setPerks] = useState('');
   const [location, setLocation] = useState('');
   const [keyword, setKeyword] = useState('');
+  const [clickRecent, setClickRecent] = useState(false)
+  const [clickCompanySort, setClickCompanySort] = useState(false)
+
 
   const handleFunctionAreaChange = (event) => {
     setFunctionalArea(event.target.value)
@@ -61,46 +64,74 @@ const JobBoard = ({ data, getDaysSinceJobPost }) => {
   // console.log(jobs);
 
   const showRecent = () => {
-    const dateArray = [];
-    data.forEach((job, index) => {
-      const date = new Date(job['Date Published']).toLocaleDateString();
-      dateArray.push({ date, index });
-    });
-    dateArray.sort((a, b) => b.date.localeCompare(a.date));
+    let filteredJobs = [];
+    if (!clickRecent) {
+      const dateArray = [];
+      data.forEach((job) => {
+        const date = new Date(job['Date Published']).toLocaleDateString();
+        const jobId = job['ID']
+        dateArray.push({ date, jobId });
+      });
+      dateArray.sort((a, b) => b.date.localeCompare(a.date));
+      console.log(dateArray);
 
-    // addedIndeces set to avoid repeated jobs
-    const filteredJobs = [];
-    const addedIndices = new Set();
+      const addedIndices = new Set()
+      dateArray.forEach((jobInfo) => {
+        const jobId = jobInfo.jobId;
 
-    dateArray.forEach(({ date, index }) => {
-      if (!addedIndices.has(index)) {
-        filteredJobs.push(data[index]);
-        addedIndices.add(index);
-      }
-    });
+        // Check if the jobId is already added to the set
+        if (!addedIndices.has(jobId)) {
+          addedIndices.add(jobId);
 
+          const job = data.find((job) => job['ID'] === jobId);
+
+          if (job) {
+            filteredJobs.push(job);
+          }
+        }
+      });
+      setClickRecent(true)
+    } else {
+      filteredJobs = data;
+      setClickRecent(false)
+    }
     setJobs(filteredJobs);
   }
 
   const sortCompanies = () => {
-    const companiesArray = []
-    data.forEach((job, index) => {
-      const companyName = job['Company Name']
-      companiesArray.push({ companyName, index})
-    })
+  let filteredJobs = [...data];
 
-    let filteredJobs = []
-    const addedIndices = new Set()
+  if (!clickCompanySort) {
+    const companiesArray = [];
+    const addedIndices = new Set();
 
-    companiesArray.forEach(({companyName, index}) => {
-      if (!addedIndices.has(index)) {
-        filteredJobs.push(data[index]);
-        addedIndices.add(index);
+    data.forEach((job) => {
+      const companyName = job['Company Name'];
+      const jobId = job['ID'];
+      companiesArray.push({ companyName, jobId });
+    });
+
+    companiesArray.sort((a, b) => a.companyName.localeCompare(b.companyName));
+    filteredJobs = [];
+
+    companiesArray.forEach(({ jobId }) => {
+      if (!addedIndices.has(jobId)) {
+        // Find the job in the data array based on jobId and push it to filteredJobs
+        const job = data.find((job) => job['ID'] === jobId);
+        if (job) {
+          filteredJobs.push(job);
+          addedIndices.add(jobId);
+        }
       }
-      return filteredJobs.sort().reverse()
-    })
+    });
 
-    setJobs(filteredJobs)
+    setClickCompanySort(true);
+  } else {
+    filteredJobs.reverse();
+    setClickCompanySort(false);
+  }
+
+  setJobs(filteredJobs);
   }
 
   return (
