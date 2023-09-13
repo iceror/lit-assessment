@@ -94,6 +94,7 @@
 
 main {
   background: $light-grey;
+  padding-bottom: 5rem;
 
   h2 {
     font-size: 1.625rem;
@@ -140,6 +141,7 @@ main {
     margin-top: 2rem;
     background: $white;
     display: grid;
+    align-items: center;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 2fr 1fr;
     grid-template-areas:

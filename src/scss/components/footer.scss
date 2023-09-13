@@ -1,0 +1,85 @@
+footer {
+  width: 100%;
+  background-color: $header-grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h4 {
+    color: $white;
+  }
+
+  a {
+    color: $pink;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: .5rem;
+  }
+
+  button {
+    border: none;
+    background-color: $pink;
+    color: $white;
+    width: 116px;
+    height: 39px;
+    border-radius: 3px;
+  }
+
+  .links {
+    margin: 1rem;
+    width: 67.5rem;
+    height: 15.75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr .5fr;
+
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    p {
+      color: $white;
+      font-size: 14px;
+      font-weight: 700;
+      grid-column: span 2;
+      align-self: baseline;
+    }
+  }
+
+  .policies {
+    width: 100%;
+    height: 44px;
+    background-color: $black;
+    display: flex;
+    justify-content: center;
+
+
+    .width-set {
+      width: 67.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .cookies-terms-privacy {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 27rem;
+
+        a {
+          font-weight: 700;
+          margin: 0;
+        }
+      }
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      img {
+        margin-left: .5rem;
+      }
+    }
+  }
+}
