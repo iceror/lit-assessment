@@ -10,6 +10,7 @@ import lgbtqi from '../assets/img/lgbtiq.png'
 import location from '../assets/img/location.png'
 import clock from '../assets/img/clock.png'
 import seniority from '../assets/img/flower.png'
+import PerksImages from './PerksImages';
 
 const JobList = ({ data, getDaysSinceJobPost }) => {
   // const data = getData()
@@ -29,27 +30,6 @@ const JobList = ({ data, getDaysSinceJobPost }) => {
         {/* TO DO render only 25 elements and make various pages .slice(0,26) */}
         {data.map((job, index) => {
           const perksArray = job['Perks (coming soon)'].split(';').map(perk => perk.trim());
-
-          const renderPerkImages = (perksArray) => {
-            return perksArray.map((perk, perkIndex) => {
-              switch (perk) {
-                case 'remotefriendly':
-                  return <img key={`perk-remote-${perkIndex}`} src={remoteFriendly} alt="Remote Friendly" />;
-                case 'unlimitedvacation':
-                  return <img key={`perk-unlimited-${perkIndex}`} src={unlimitedVacation} alt="Unlimited Vacation" />;
-                case 'paidparentalleave':
-                  return <img src={parentalLeave} alt="Paid Parental Leave" />
-                case 'latinxintech':
-                  return <img src={latinxInTech} alt="Latinx in Tech" />
-                case 'womenintecherg':
-                  return <img src={womenInTech} alt="Women in Tech" />
-                case 'lgbtqierg-2':
-                  return <img src={lgbtqi} alt="LGBTQI+" />
-                default:
-                  return null; // No image for unknown perks
-              }
-            });
-          };
 
           return (
             <li key={`job-${index + 1}`} onClick={() => routeChange(job, index)}>
@@ -73,7 +53,7 @@ const JobList = ({ data, getDaysSinceJobPost }) => {
                 </div>
               </div>
               <ul className="perks">
-                {renderPerkImages(perksArray)}
+                <PerksImages perksArray={perksArray}/>
               </ul>
             </li>
           )

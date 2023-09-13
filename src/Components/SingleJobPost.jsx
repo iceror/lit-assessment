@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import JobList from "./JobList";
 import { useEffect, useState } from "react";
+import PerksImages from "./PerksImages";
 
 const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
   const { jobPath } = useParams();
@@ -12,8 +13,7 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
   // console.log(jobIndex);
   console.log(singleJob);
 
-  // const perksArray = singleJob['Perks (coming soon)'].split(';').map(perk => perk.trim());
-  // console.log(perksArray);
+  const perksArray = singleJob['Perks (coming soon)'].split(';').map(perk => perk.trim());
 
   const getSimilarJobs = () => {
     let similar = data.filter(job => {
@@ -39,7 +39,7 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
           {/* <p>{singleJob['Company tagline']}</p> */}
         </div>
         <div className="perks">
-          {/* {renderPerkImages()}   */}
+          <PerksImages perksArray={perksArray}/>
         </div>
         <div className="single-job-modality">
           <p>{singleJob['Job Type']}</p>
