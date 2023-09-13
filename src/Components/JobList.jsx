@@ -18,7 +18,7 @@ const JobList = ({ data, getDaysSinceJobPost }) => {
     data.length === 0 ? <h3>We don't have jobs that match that description yet 😬</h3> :
       (<ul className='job-list'>
         {/* TO DO render only 25 elements and make various pages .slice(0,26) */}
-        {data.map((job, index) => {
+        {data.map((job) => {
           const perksArray = job['Perks (coming soon)'].split(';').map(perk => perk.trim());
           // let path = `jobs/job-${index + 1}-${job['Job Title'].replace(/[\s/]/g, '-')}-${job['Company Name'].replace(/[\s/]/g, '-')}`;
 
