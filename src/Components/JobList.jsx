@@ -7,11 +7,11 @@ import PerksImages from './PerksImages';
 const JobList = ({ data, getDaysSinceJobPost }) => {
   let navigate = useNavigate();
 
-  const routeChange = (job, index) => {
-    // TO DO fix paths adding
-    console.log(job);
-    let path = `jobs/job-${index + 1}-${job['Job Title'].replace(/[\s/]/g, '-')}-${job['Company Name'].replace(/[\s/]/g, '-')}`;
-    navigate(path)
+  const routeChange = (job) => {
+    let path = `/jobs/job-${job['ID']}-${job['Job Title'].replace(/[\s/]/g, '-')}-${job['Company Name'].replace(/[\s/]/g, '-')}`;
+    navigate(path);  
+    // window.location.pathname = path
+    // window.location.reload()
   }
 
   return (
@@ -20,9 +20,10 @@ const JobList = ({ data, getDaysSinceJobPost }) => {
         {/* TO DO render only 25 elements and make various pages .slice(0,26) */}
         {data.map((job, index) => {
           const perksArray = job['Perks (coming soon)'].split(';').map(perk => perk.trim());
+          // let path = `jobs/job-${index + 1}-${job['Job Title'].replace(/[\s/]/g, '-')}-${job['Company Name'].replace(/[\s/]/g, '-')}`;
 
           return (
-            <li key={`job-${index + 1}`} onClick={() => routeChange(job, index)}>
+            <li key={`job-${job['ID']}`} onClick={() => routeChange(job)}>
               <div className='main-job-info'>
                 <h2>{job['Job Title']}</h2>
                 <p>{job['Company Name']}</p>
@@ -43,7 +44,7 @@ const JobList = ({ data, getDaysSinceJobPost }) => {
                 </div>
               </div>
               <ul className="perks">
-                <PerksImages perksArray={perksArray}/>
+                <PerksImages perksArray={perksArray} />
               </ul>
             </li>
           )
