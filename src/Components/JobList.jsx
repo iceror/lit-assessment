@@ -20,7 +20,6 @@ const JobList = ({ data, getDaysSinceJobPost }) => {
 
   const routeChange = (job, index) => {
     console.log(job);
-    // let path = `jobs/job-${index + 1}-${job['Job Title'].replace(/\s+/g, '-')}-${job['Company Name'].replace(/\s+/g, '-')}`;
     let path = `jobs/job-${index + 1}-${job['Job Title'].replace(/[\s/]/g, '-')}-${job['Company Name'].replace(/[\s/]/g, '-')}`;
     navigate(path)
   }
