@@ -34,6 +34,7 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
 
   useEffect(() => {
     getSimilarJobs()
+    window.scrollTo(0, 0);
   }, [jobPath])
 
   let navigate = useNavigate()
@@ -99,7 +100,7 @@ const SingleJobPost = ({ data, getDaysSinceJobPost }) => {
           <button>See company profile</button>
         </section>
         <section className="similar-jobs">
-          <h2>Similar Jobs</h2>
+          <h2 className="similar-jobs-title">Similar Jobs</h2>
           <JobList data={similarJobs} getDaysSinceJobPost={getDaysSinceJobPost} />
         </section>
       </main>

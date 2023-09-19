@@ -49,6 +49,7 @@ const JobBoard = ({ data, getDaysSinceJobPost }) => {
       const jobValues = Object.values(job);
       return jobValues.some((value) => value.toLowerCase().includes(keyword.toLowerCase()))
     })
+    // _ reference to object 
     const filteredJobs = data.filter((_, index) => keywordExistsInJob[index]);
     // console.log(filteredJobs);
     setJobs(filteredJobs)
