@@ -161,6 +161,7 @@ main .search .order-by button:focus {
   font-size: 1rem;
   text-decoration: none;
   margin: 0;
+  line-height: 1.5;
 }
 .job-list li .job-modality div {
   display: flex;
@@ -325,6 +326,9 @@ main .about-company button {
 }
 main .similar-jobs {
   margin-top: 2rem;
+}
+main .similar-jobs .similar-jobs-title {
+  text-indent: 1rem;
 }
 main .similar-jobs h2 {
   background: white;

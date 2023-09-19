@@ -177,6 +177,9 @@ main {
   .similar-jobs {
     margin-top: 2rem;
 
+    .similar-jobs-title {
+      text-indent: 1rem;
+    }
     h2 {
       background: $white;
       margin: 0;
